@@ -3,9 +3,50 @@
     <meta charset="UTF-8" />
   </head>
   <body>
-    <form action="">
-      <input type="text" placeholder="souce" />
-      <input type="text" placeholder="target" />
+    <!-- <p style="background-color: aliceblue;" id="demo" ></p> -->
+    <script>
+      document.write("<center><select id='selectBox'>");
+      for (var pages = 1; pages <= 25; pages += 1) {
+        document.write("<option>" + pages + "</option>");
+        // document.getElementById("demo").innerHTML = pages
+      }
+      document.write("</select></center>");
+      document.write("<center><select id='selectBox'>");
+      for (var pages = 1; pages <= 25; pages += 1) {
+        document.write("<option>" + pages + "</option>");
+        // document.getElementById("demo").innerHTML = pages
+      }
+      document.write("</select></center>");
+      document.write("<center><select id='selectBox'>");
+      for (var pages = 1; pages <= 25; pages += 1) {
+        document.write("<option>" + pages + "</option>");
+        // document.getElementById("demo").innerHTML = pages
+      }
+      document.write("</select></center>");
+    </script>
+    <!-- <table class="table table-bordered">
+      <!-- <tr>
+        <td>Number of pages</td>
+        <td>Cost</td>
+      </tr> -->
+      <tr>
+        <!-- <td id="p1"></td> -->
+        <!-- <td id="cost"></td> -->
+      </tr>
+    </table> -->
+
+    <form action="action_page.php" method="post">
+      <div class="container">
+        <input type="text" placeholder="Source" name="source" required />
+        <input type="password" placeholder="Target" name="target" required />
+        <input
+          type="password"
+          placeholder="Interface"
+          name="interface"
+          required
+        />
+        <button type="submit">Submit</button>
+      </div>
     </form>
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/d3-org-chart@2.6.0"></script>
@@ -74,19 +115,17 @@
                              
                              <div class="pie-chart-wrapper" style="margin-left:-10px;margin-top:5px;width:320px;height:300px"></div>
                            
-                            <div style="color:#2CAAE5;position:absolute;right:15px;top:-20px;">
+                            <div style="color:#2CAAE5;position:absolute;right:255px;top:-20px;">
                               <div style="font-size:15px;color:#2CAAE5;margin-top:32px"> ${
                                 d.data.name
                               } </div>
-                              <div style="font-size:10px;"> ${
+                              <div style="font-size:10px "> ${
                                 d.data.positionName || ""
                               } </div>
                               <div style="font-size:10px;"> ${
                                 d.data.id || ""
                               } </div>
-                              ${
-                                d.depth == 1                                  
-                              }
+                              ${d.depth == 1}
 
                             </div>
 
@@ -294,28 +333,6 @@
       </button>
       <br />
 
-      <button
-        onclick='chart.setCentered("O-6162").render()'
-        class="btn btn-action-button waves-effect waves-light"
-      >
-        <i class="fas fa-compress-arrows-alt"></i> center
-      </button>
-      <br />
-
-      <button
-        onclick='chart.setUpToTheRootHighlighted("O-6162").render().fit()'
-        class="btn btn-action-button waves-effect waves-light"
-      >
-        <i class="fas fa-route"></i> mark root
-      </button>
-      <br />
-      <button
-        onclick="chart.clearHighlighting()"
-        class="btn btn-action-button waves-effect waves-light"
-      >
-        <i class="fas fa-eraser"></i> clear mark
-      </button>
-      <br />
       <button
         onclick="chart.fullscreen('body')"
         class="btn btn-action-button waves-effect waves-light"
